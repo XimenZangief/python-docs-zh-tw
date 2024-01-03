@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python 2.7 有什麼新功能 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 2.7 有什麼新功能 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -190,7 +190,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什麼新功能？</a> &#187;</li>
@@ -436,7 +436,7 @@ remains O(1).</p>
 <p>The standard library now supports use of ordered dictionaries in several
 modules.</p>
 <ul class="simple">
-<li><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">ConfigParser</span></code> module uses them by default, meaning that
+<li><p>The <a class="reference internal" href="../library/configparser.html#module-configparser" title="configparser: Configuration file parser."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ConfigParser</span></code></a> module uses them by default, meaning that
 configuration files can now be read, modified, and then written back
 in their original order.</p></li>
 <li><p>The <a class="reference internal" href="../library/collections.html#collections.somenamedtuple._asdict" title="collections.somenamedtuple._asdict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">_asdict()</span></code></a> method for
@@ -958,9 +958,10 @@ Victor Stinner; <a class="reference external" href="https://bugs.python.org/issu
 <code class="docutils literal notranslate"><span class="pre">None</span></code> as its first argument.  (Fixed by Georg Brandl;
 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=4759">bpo-4759</a>.)</p>
 </li>
-<li><p>When using <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> to wrap
+<li><p>When using <a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;classmethod</span></code></a> and
+<a class="reference internal" href="../library/functions.html#staticmethod" title="staticmethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code></a> to wrap
 methods as class or static methods, the wrapper object now
-exposes the wrapped function as their <a class="reference internal" href="../reference/datamodel.html#instance-methods"><span class="std std-ref">__func__</span></a>
+exposes the wrapped function as their <a class="reference internal" href="../reference/datamodel.html#method.__func__" title="method.__func__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__func__</span></code></a>
 attribute.
 (Contributed by Amaury Forgeot d'Arc, after a suggestion by
 George Sakkis; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=5982">bpo-5982</a>.)</p></li>
@@ -1190,7 +1191,7 @@ returns <a class="reference internal" href="../library/constants.html#NotImpleme
 another type that isn't a <code class="xref py py-class docutils literal notranslate"><span class="pre">Mapping</span></code>.
 (Fixed by Daniel Stutzbach; <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=8729">bpo-8729</a>.)</p>
 </li>
-<li><p>Constructors for the parsing classes in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ConfigParser</span></code> module now
+<li><p>Constructors for the parsing classes in the <a class="reference internal" href="../library/configparser.html#module-configparser" title="configparser: Configuration file parser."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ConfigParser</span></code></a> module now
 take an <em>allow_no_value</em> parameter, defaulting to false; if true,
 options without values will be allowed.  For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ConfigParser</span><span class="o">,</span> <span class="nn">StringIO</span>
@@ -2286,7 +2287,7 @@ performing several tasks using a varying number of threads.</p></li>
 forms in <code class="file docutils literal notranslate"><span class="pre">.po</span></code> files.  (Fixed by Martin von Löwis;
 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=5464">bpo-5464</a>.)</p></li>
 <li><p>When importing a module from a <code class="file docutils literal notranslate"><span class="pre">.pyc</span></code> or <code class="file docutils literal notranslate"><span class="pre">.pyo</span></code> file
-with an existing <code class="file docutils literal notranslate"><span class="pre">.py</span></code> counterpart, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">co_filename</span></code>
+with an existing <code class="file docutils literal notranslate"><span class="pre">.py</span></code> counterpart, the <a class="reference internal" href="../reference/datamodel.html#codeobject.co_filename" title="codeobject.co_filename"><code class="xref py py-attr docutils literal notranslate"><span class="pre">co_filename</span></code></a>
 attributes of the resulting code objects are overwritten when the
 original filename is obsolete.  This can happen if the file has been
 renamed, moved, or is accessed through different paths.  (Patch by
@@ -2733,7 +2734,7 @@ Hugh Secker-Walker.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什麼新功能？</a> &#187;</li>
@@ -2762,7 +2763,7 @@ Hugh Secker-Walker.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版權</a> 2001-2023, Python Software Foundation.
+    &copy; <a href="../copyright.html">版權</a> 2001-2024, Python Software Foundation.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
@@ -2776,7 +2777,7 @@ Hugh Secker-Walker.</p>
 <br />
     <br />
 
-    最後更新於 Dec 06, 2023 (08:11 UTC)。
+    最後更新於 Jan 03, 2024 (04:57 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python 3.12 有什麼新功能 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 3.12 有什麼新功能 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -242,7 +242,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什麼新功能？</a> &#187;</li>
@@ -546,16 +546,16 @@ cores. This is currently only available through the C-API,
 though a Python API is <span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0554/"><strong>anticipated for 3.13</strong></a>.</p>
 <p>Use the new <a class="reference internal" href="../c-api/init.html#c.Py_NewInterpreterFromConfig" title="Py_NewInterpreterFromConfig"><code class="xref c c-func docutils literal notranslate"><span class="pre">Py_NewInterpreterFromConfig()</span></code></a> function to
 create an interpreter with its own GIL:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">PyInterpreterConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="o">.</span><span class="n">check_multi_interp_extensions</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="o">.</span><span class="n">gil</span> <span class="o">=</span> <span class="n">PyInterpreterConfig_OWN_GIL</span><span class="p">,</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyInterpreterConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="n">check_multi_interp_extensions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">gil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyInterpreterConfig_OWN_GIL</span><span class="p">,</span>
 <span class="p">};</span>
-<span class="n">PyThreadState</span> <span class="o">*</span><span class="n">tstate</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
-<span class="n">PyStatus</span> <span class="n">status</span> <span class="o">=</span> <span class="n">Py_NewInterpreterFromConfig</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tstate</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">config</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">PyStatus_Exception</span><span class="p">(</span><span class="n">status</span><span class="p">))</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">PyThreadState</span><span class="w"> </span><span class="o">*</span><span class="n">tstate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="n">PyStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Py_NewInterpreterFromConfig</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tstate</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">config</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PyStatus_Exception</span><span class="p">(</span><span class="n">status</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="o">/*</span> <span class="n">The</span> <span class="n">new</span> <span class="n">interpreter</span> <span class="ow">is</span> <span class="n">now</span> <span class="n">active</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">thread</span><span class="o">.</span> <span class="o">*/</span>
+<span class="cm">/* The new interpreter is now active in the current thread. */</span>
 </pre></div>
 </div>
 <p>For further examples how to use the C-API for sub-interpreters with a
@@ -1383,8 +1383,7 @@ longstanding platform compatibility problem to developers.</p></li>
 <a class="reference internal" href="../library/concurrent.futures.html#module-concurrent.futures" title="concurrent.futures: Execute computations concurrently using threads or processes."><code class="xref py py-mod docutils literal notranslate"><span class="pre">concurrent.futures</span></code></a> the fix is to use a different
 <a class="reference internal" href="../library/multiprocessing.html#module-multiprocessing" title="multiprocessing: Process-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a> start method such as <code class="docutils literal notranslate"><span class="pre">&quot;spawn&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;forkserver&quot;</span></code>.</p>
 </li>
-<li><p><a class="reference internal" href="../library/shutil.html#module-shutil" title="shutil: High-level file operations, including copying."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a>: The <em>onerror</em> argument of <a class="reference internal" href="../library/shutil.html#shutil.rmtree" title="shutil.rmtree"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.rmtree()</span></code></a> is deprecated;
-use <em>onexc</em> instead. (Contributed by Irit Katriel in <a class="reference external" href="https://github.com/python/cpython/issues/102828">gh-102828</a>.)</p></li>
+<li><p><a class="reference internal" href="../library/shutil.html#module-shutil" title="shutil: High-level file operations, including copying."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a>：<a class="reference internal" href="../library/shutil.html#shutil.rmtree" title="shutil.rmtree"><code class="xref py py-func docutils literal notranslate"><span class="pre">shutil.rmtree()</span></code></a> 的 <em>onerror</em> 引數已被棄用，請改用 <em>onexc</em>。（由 Irit Katriel 於 <a class="reference external" href="https://github.com/python/cpython/issues/102828">gh-102828</a> 中貢獻。）</p></li>
 <li><p><a class="reference internal" href="../library/sqlite3.html#module-sqlite3" title="sqlite3: A DB-API 2.0 implementation using SQLite 3.x."><code class="xref py py-mod docutils literal notranslate"><span class="pre">sqlite3</span></code></a>：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/sqlite3.html#sqlite3-default-converters"><span class="std std-ref">default adapters and converters</span></a> are now deprecated.
@@ -1436,7 +1435,8 @@ error in Python 3.14. Use <code class="docutils literal notranslate"><span class
 In the rare case that you really need the bitwise inversion of the underlying
 <code class="docutils literal notranslate"><span class="pre">int</span></code>, convert to int explicitly: <code class="docutils literal notranslate"><span class="pre">~int(x)</span></code>. (Contributed by Tim Hoffmann
 in <a class="reference external" href="https://github.com/python/cpython/issues/103487">gh-103487</a>.)</p></li>
-<li><p>Accessing <code class="docutils literal notranslate"><span class="pre">co_lnotab</span></code> on code objects was deprecated in Python 3.10 via <span class="target" id="index-30"></span><a class="pep reference external" href="https://peps.python.org/pep-0626/"><strong>PEP 626</strong></a>,
+<li><p>Accessing <a class="reference internal" href="../reference/datamodel.html#codeobject.co_lnotab" title="codeobject.co_lnotab"><code class="xref py py-attr docutils literal notranslate"><span class="pre">co_lnotab</span></code></a> on code objects was deprecated in
+Python 3.10 via <span class="target" id="index-30"></span><a class="pep reference external" href="https://peps.python.org/pep-0626/"><strong>PEP 626</strong></a>,
 but it only got a proper <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a> in 3.12,
 therefore it will be removed in 3.14.
 (Contributed by Nikita Sobolev in <a class="reference external" href="https://github.com/python/cpython/issues/101866">gh-101866</a>.)</p></li>
@@ -1538,7 +1538,7 @@ of <code class="xref py py-class docutils literal notranslate"><span class="pre"
 <li><p><a class="reference internal" href="../library/typing.html#module-typing" title="typing: Support for type hints (see :pep:`484`)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a>：<code class="xref py py-class docutils literal notranslate"><span class="pre">typing.ByteString</span></code></p></li>
 <li><p><a class="reference internal" href="../library/xml.etree.elementtree.html#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code></a>: Testing the truth value of an <a class="reference internal" href="../library/xml.etree.elementtree.html#xml.etree.ElementTree.Element" title="xml.etree.ElementTree.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml.etree.ElementTree.Element</span></code></a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">__package__</span></code> and <code class="docutils literal notranslate"><span class="pre">__cached__</span></code> attributes on module objects.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">co_lnotab</span></code> attribute of code objects.</p></li>
+<li><p>The <a class="reference internal" href="../reference/datamodel.html#codeobject.co_lnotab" title="codeobject.co_lnotab"><code class="xref py py-attr docutils literal notranslate"><span class="pre">co_lnotab</span></code></a> attribute of code objects.</p></li>
 </ul>
 </section>
 <section id="pending-removal-in-python-3-15">
@@ -2062,6 +2062,14 @@ returning arbitrary <code class="docutils literal notranslate"><span class="pre"
 <li><p>Mixing tabs and spaces as indentation in the same file is not supported anymore and will
 raise a <a class="reference internal" href="../library/exceptions.html#TabError" title="TabError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TabError</span></code></a>.</p></li>
 </ul>
+</li>
+<li><p>The <a class="reference internal" href="../library/threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> module now expects the <code class="xref py py-mod docutils literal notranslate"><span class="pre">_thread</span></code> module to have
+an <code class="docutils literal notranslate"><span class="pre">_is_main_interpreter</span></code> attribute.  It is a function with no
+arguments that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the current interpreter is the
+main interpreter.</p>
+<p>Any library or application that provides a custom <code class="docutils literal notranslate"><span class="pre">_thread</span></code> module
+should provide <code class="docutils literal notranslate"><span class="pre">_is_main_interpreter()</span></code>.
+(See <a class="reference external" href="https://github.com/python/cpython/issues/112826">gh-112826</a>.)</p>
 </li>
 </ul>
 </section>
@@ -2746,7 +2754,7 @@ internals.
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什麼新功能？</a> &#187;</li>
@@ -2775,7 +2783,7 @@ internals.
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版權</a> 2001-2023, Python Software Foundation.
+    &copy; <a href="../copyright.html">版權</a> 2001-2024, Python Software Foundation.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
@@ -2789,7 +2797,7 @@ internals.
 <br />
     <br />
 
-    最後更新於 Dec 06, 2023 (08:11 UTC)。
+    最後更新於 Jan 03, 2024 (04:57 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

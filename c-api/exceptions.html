@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>例外處理 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>例外處理 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -154,7 +154,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API 參考手冊</a> &#187;</li>
@@ -647,7 +647,7 @@ recursively in subtuples) are searched for a match.</p>
 <dt class="sig sig-object c" id="c.PyErr_GetRaisedException">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyErr_GetRaisedException</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyErr_GetRaisedException" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount">回傳值：新的參照。</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a> since version 3.12.</em><p>Return the exception currently being raised, clearing the error indicator at
-the same time.</p>
+the same time. Return <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the error indicator is not set.</p>
 <p>This function is used by code that needs to catch exceptions,
 or code that needs to save and restore the error indicator temporarily.</p>
 <p>For example:</p>
@@ -751,7 +751,8 @@ the class in that case.  If the values are already normalized, nothing happens.
 The delayed normalization is implemented to improve performance.</p>
 <div class="admonition note">
 <p class="admonition-title">備註</p>
-<p>This function <em>does not</em> implicitly set the <code class="docutils literal notranslate"><span class="pre">__traceback__</span></code>
+<p>This function <em>does not</em> implicitly set the
+<a class="reference internal" href="../library/exceptions.html#BaseException.__traceback__" title="BaseException.__traceback__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__traceback__</span></code></a>
 attribute on the exception value. If setting the traceback
 appropriately is desired, the following additional snippet is needed:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tb</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -963,7 +964,8 @@ docstring for the exception class.</p>
 <dt class="sig sig-object c" id="c.PyException_GetTraceback">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyException_GetTraceback</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyException_GetTraceback" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount">回傳值：新的參照。</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return the traceback associated with the exception as a new reference, as
-accessible from Python through <code class="xref py py-attr docutils literal notranslate"><span class="pre">__traceback__</span></code>.  If there is no
+accessible from Python through the <a class="reference internal" href="../library/exceptions.html#BaseException.__traceback__" title="BaseException.__traceback__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__traceback__</span></code></a>
+attribute. If there is no
 traceback associated, this returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 </dd></dl>
 
@@ -979,8 +981,8 @@ clear it.</p>
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyException_GetContext</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyException_GetContext" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount">回傳值：新的參照。</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return the context (another exception instance during whose handling <em>ex</em> was
 raised) associated with the exception as a new reference, as accessible from
-Python through <code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code>.  If there is no context associated, this
-returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
+Python through the <a class="reference internal" href="../library/exceptions.html#BaseException.__context__" title="BaseException.__context__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__context__</span></code></a> attribute.
+If there is no context associated, this returns <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p>
 </dd></dl>
 
 <dl class="c function">
@@ -996,7 +998,8 @@ This steals a reference to <em>ctx</em>.</p>
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">PyException_GetCause</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><span class="n"><span class="pre">PyObject</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyException_GetCause" title="Link to this definition">¶</a><br /></dt>
 <dd><em class="refcount">回傳值：新的參照。</em><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Return the cause (either an exception instance, or <code class="docutils literal notranslate"><span class="pre">None</span></code>,
 set by <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">...</span> <span class="pre">from</span> <span class="pre">...</span></code>) associated with the exception as a new
-reference, as accessible from Python through <code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code>.</p>
+reference, as accessible from Python through the
+<a class="reference internal" href="../library/exceptions.html#BaseException.__cause__" title="BaseException.__cause__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__cause__</span></code></a> attribute.</p>
 </dd></dl>
 
 <dl class="c function">
@@ -1005,7 +1008,8 @@ reference, as accessible from Python through <code class="xref py py-attr docuti
 <dd><em class="stableabi"> Part of the <a class="reference internal" href="stable.html#stable"><span class="std std-ref">Stable ABI</span></a>.</em><p>Set the cause associated with the exception to <em>cause</em>.  Use <code class="docutils literal notranslate"><span class="pre">NULL</span></code> to clear
 it.  There is no type check to make sure that <em>cause</em> is either an exception
 instance or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  This steals a reference to <em>cause</em>.</p>
-<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">__suppress_context__</span></code> is implicitly set to <code class="docutils literal notranslate"><span class="pre">True</span></code> by this function.</p>
+<p>The <a class="reference internal" href="../library/exceptions.html#BaseException.__suppress_context__" title="BaseException.__suppress_context__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__suppress_context__</span></code></a> attribute is implicitly set
+to <code class="docutils literal notranslate"><span class="pre">True</span></code> by this function.</p>
 </dd></dl>
 
 <dl class="c function">
@@ -1630,7 +1634,7 @@ the variables:</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python/C API 參考手冊</a> &#187;</li>
@@ -1659,7 +1663,7 @@ the variables:</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版權</a> 2001-2023, Python Software Foundation.
+    &copy; <a href="../copyright.html">版權</a> 2001-2024, Python Software Foundation.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
@@ -1673,7 +1677,7 @@ the variables:</p>
 <br />
     <br />
 
-    最後更新於 Dec 06, 2023 (08:11 UTC)。
+    最後更新於 Jan 03, 2024 (04:57 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

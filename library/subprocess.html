@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>subprocess --- Subprocess management &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subprocess --- Subprocess management &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -255,7 +255,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -1052,9 +1052,10 @@ Use <a class="reference internal" href="#subprocess.Popen.communicate" title="su
 </div>
 <div class="admonition note">
 <p class="admonition-title">備註</p>
-<p>The function is implemented using a busy loop (non-blocking call and
-short sleeps). Use the <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> module for an asynchronous wait:
-see <a class="reference internal" href="asyncio-subprocess.html#asyncio.create_subprocess_exec" title="asyncio.create_subprocess_exec"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.create_subprocess_exec</span></code></a>.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> parameter is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, then (on POSIX) the
+function is implemented using a busy loop (non-blocking call and short
+sleeps). Use the <a class="reference internal" href="asyncio.html#module-asyncio" title="asyncio: Asynchronous I/O."><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> module for an asynchronous wait: see
+<a class="reference internal" href="asyncio-subprocess.html#asyncio.create_subprocess_exec" title="asyncio.create_subprocess_exec"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.create_subprocess_exec</span></code></a>.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">在 3.3 版的變更: </span>新增 <em>timeout</em>。</p>
@@ -2093,7 +2094,7 @@ code.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -2123,7 +2124,7 @@ code.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版權</a> 2001-2023, Python Software Foundation.
+    &copy; <a href="../copyright.html">版權</a> 2001-2024, Python Software Foundation.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
@@ -2137,7 +2138,7 @@ code.</p>
 <br />
     <br />
 
-    最後更新於 Dec 06, 2023 (08:11 UTC)。
+    最後更新於 Jan 03, 2024 (04:57 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

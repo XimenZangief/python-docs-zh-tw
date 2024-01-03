@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>typing --- 支援型別提示 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typing --- 支援型別提示 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -343,7 +343,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -578,7 +578,7 @@
 <span class="n">output</span> <span class="o">=</span> <span class="n">UserId</span><span class="p">(</span><span class="mi">23413</span><span class="p">)</span> <span class="o">+</span> <span class="n">UserId</span><span class="p">(</span><span class="mi">54341</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>注意這只會透過靜態型別檢查器強制檢查。在 runtime 中，陳述式 (statement) <code class="docutils literal notranslate"><span class="pre">Derived</span> <span class="pre">=</span> <span class="pre">NewType('Derived',</span> <span class="pre">Base)</span></code> 會使 <code class="docutils literal notranslate"><span class="pre">Derived</span></code> 成為一個 callable（可呼叫物件），會立即回傳任何你傳遞的引數。這意味著 expression （運算式）``Derived(some_value)`` 不會建立一個新的類別或過度引入原有的函式呼叫。</p>
+<p>注意這只會透過靜態型別檢查器強制檢查。在 runtime 中，陳述式 (statement) <code class="docutils literal notranslate"><span class="pre">Derived</span> <span class="pre">=</span> <span class="pre">NewType('Derived',</span> <span class="pre">Base)</span></code> 會使 <code class="docutils literal notranslate"><span class="pre">Derived</span></code> 成為一個 callable（可呼叫物件），會立即回傳任何你傳遞的引數。這意味著 expression （運算式）<code class="docutils literal notranslate"><span class="pre">Derived(some_value)</span></code> 不會建立一個新的類別或過度引入原有的函式呼叫。</p>
 <p>更精確地說，expression <code class="docutils literal notranslate"><span class="pre">some_value</span> <span class="pre">is</span> <span class="pre">Derived(some_value)</span></code> 在 runtime 永遠為 true。</p>
 <p>這會無法建立一個 <code class="docutils literal notranslate"><span class="pre">Derived</span></code> 的子型別：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NewType</span>
@@ -2943,30 +2943,28 @@ information about exhaustiveness checking with static typing.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="typing.reveal_type">
 <span class="sig-prename descclassname"><span class="pre">typing.</span></span><span class="sig-name descname"><span class="pre">reveal_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#typing.reveal_type" title="Link to this definition">¶</a></dt>
-<dd><p>Reveal the inferred static type of an expression.</p>
+<dd><p>Ask a static type checker to reveal the inferred type of an expression.</p>
 <p>When a static type checker encounters a call to this function,
-it emits a diagnostic with the type of the argument. For example:</p>
+it emits a diagnostic with the inferred type of the argument. For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">reveal_type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Revealed type is &quot;builtins.int&quot;</span>
 </pre></div>
 </div>
 <p>This can be useful when you want to debug how your type checker
 handles a particular piece of code.</p>
-<p>The function returns its argument unchanged, which allows using
-it within an expression:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">reveal_type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Revealed type is &quot;builtins.int&quot;</span>
-</pre></div>
-</div>
-<p>Most type checkers support <code class="docutils literal notranslate"><span class="pre">reveal_type()</span></code> anywhere, even if the
-name is not imported from <code class="docutils literal notranslate"><span class="pre">typing</span></code>. Importing the name from
-<code class="docutils literal notranslate"><span class="pre">typing</span></code> allows your code to run without runtime errors and
-communicates intent more clearly.</p>
-<p>At runtime, this function prints the runtime type of its argument to stderr
-and returns it unchanged:</p>
+<p>At runtime, this function prints the runtime type of its argument to
+<a class="reference internal" href="sys.html#sys.stderr" title="sys.stderr"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> and returns the argument unchanged (allowing the call to
+be used within an expression):</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">reveal_type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># prints &quot;Runtime type is int&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># prints &quot;1&quot;</span>
 </pre></div>
 </div>
+<p>Note that the runtime type may be different from (more or less specific
+than) the type statically inferred by a type checker.</p>
+<p>Most type checkers support <code class="docutils literal notranslate"><span class="pre">reveal_type()</span></code> anywhere, even if the
+name is not imported from <code class="docutils literal notranslate"><span class="pre">typing</span></code>. Importing the name from
+<code class="docutils literal notranslate"><span class="pre">typing</span></code>, however, allows your code to run without runtime errors and
+communicates intent more clearly.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">在 3.11 版新加入.</span></p>
 </div>
@@ -4406,7 +4404,7 @@ convenience. This is subject to change, and not all deprecations are listed.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -4436,7 +4434,7 @@ convenience. This is subject to change, and not all deprecations are listed.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版權</a> 2001-2023, Python Software Foundation.
+    &copy; <a href="../copyright.html">版權</a> 2001-2024, Python Software Foundation.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
@@ -4450,7 +4448,7 @@ convenience. This is subject to change, and not all deprecations are listed.</p>
 <br />
     <br />
 
-    最後更新於 Dec 06, 2023 (08:11 UTC)。
+    最後更新於 Jan 03, 2024 (04:57 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

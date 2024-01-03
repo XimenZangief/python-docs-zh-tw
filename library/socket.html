@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>socket --- Low-level networking interface &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>socket --- Low-level networking interface &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -312,7 +312,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -2035,7 +2035,7 @@ the address family --- see above.)</p>
 <dt class="sig sig-object py" id="socket.socket.getsockopt">
 <span class="sig-prename descclassname"><span class="pre">socket.</span></span><span class="sig-name descname"><span class="pre">getsockopt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">buflen</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#socket.socket.getsockopt" title="Link to this definition">¶</a></dt>
 <dd><p>Return the value of the given socket option (see the Unix man page
-<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/getsockopt(2)">getsockopt(2)</a></em>).  The needed symbolic constants (<code class="xref py py-const docutils literal notranslate"><span class="pre">SO_*</span></code> etc.)
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/getsockopt(2)">getsockopt(2)</a></em>).  The needed symbolic constants (<a class="reference internal" href="#socket-unix-constants"><span class="std std-ref">SO_* etc.</span></a>)
 are defined in this module.  If <em>buflen</em> is absent, an integer option is assumed
 and its integer value is returned by the function.  If <em>buflen</em> is present, it
 specifies the maximum length of the buffer used to receive the option in, and
@@ -2482,8 +2482,8 @@ non-blocking mode. If <code class="docutils literal notranslate"><span class="pr
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">socket.</span></span><span class="sig-name descname"><span class="pre">setsockopt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optlen:</span> <span class="pre">int</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p id="index-14">Set the value of the given socket option (see the Unix manual page
-<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/setsockopt(2)">setsockopt(2)</a></em>).  The needed symbolic constants are defined in the
-<a class="reference internal" href="#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a> module (<code class="xref py py-const docutils literal notranslate"><span class="pre">SO_*</span></code> etc.).  The value can be an integer,
+<em class="manpage"><a class="manpage reference external" href="https://manpages.debian.org/setsockopt(2)">setsockopt(2)</a></em>).  The needed symbolic constants are defined in this
+module (<span class="xref std std-ref">SO_* etc. &lt;socket-unix-constants&gt;</span>).  The value can be an integer,
 <code class="docutils literal notranslate"><span class="pre">None</span></code> or a <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> representing a buffer. In the later
 case it is up to the caller to ensure that the bytestring contains the
 proper bits (see the optional built-in module <a class="reference internal" href="struct.html#module-struct" title="struct: Interpret bytes as packed binary data."><code class="xref py py-mod docutils literal notranslate"><span class="pre">struct</span></code></a> for a way to
@@ -3061,7 +3061,7 @@ want to refer to <span class="target" id="index-15"></span><a class="rfc referen
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -3091,7 +3091,7 @@ want to refer to <span class="target" id="index-15"></span><a class="rfc referen
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版權</a> 2001-2023, Python Software Foundation.
+    &copy; <a href="../copyright.html">版權</a> 2001-2024, Python Software Foundation.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
@@ -3105,7 +3105,7 @@ want to refer to <span class="target" id="index-15"></span><a class="rfc referen
 <br />
     <br />
 
-    最後更新於 Dec 06, 2023 (08:11 UTC)。
+    最後更新於 Jan 03, 2024 (04:57 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 
